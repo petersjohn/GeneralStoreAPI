@@ -28,7 +28,9 @@ namespace GeneralStoreAPI.Models
         [Required]
         public DateTime DateOfTransaction { get; set; }
 
-
-
+        public static implicit operator Transaction(Customer v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

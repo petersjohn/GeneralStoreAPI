@@ -222,6 +222,10 @@
     <Compile Include="Migrations\202107312047094_UpdateKey.Designer.cs">
       <DependentUpon>202107312047094_UpdateKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108030028361_UpdateVirtualOnCustCs.cs" />
+    <Compile Include="Migrations\202108030028361_UpdateVirtualOnCustCs.Designer.cs">
+      <DependentUpon>202108030028361_UpdateVirtualOnCustCs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -329,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107312047094_UpdateKey.resx">
       <DependentUpon>202107312047094_UpdateKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108030028361_UpdateVirtualOnCustCs.resx">
+      <DependentUpon>202108030028361_UpdateVirtualOnCustCs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

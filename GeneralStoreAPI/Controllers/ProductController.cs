@@ -17,7 +17,7 @@ namespace GeneralStoreAPI.Controllers
         //POST
         //api/Product
         [HttpPost]
-        public async System.Threading.Tasks.Task<IHttpActionResult> CreateProduct([FromBody] Product model)
+        public async Task<IHttpActionResult> CreateProduct([FromBody] Product model)
         {
             if (model is null)
                 return BadRequest("Request body cannot be empty");
@@ -61,22 +61,25 @@ namespace GeneralStoreAPI.Controllers
         public async Task<IHttpActionResult> UpdateProduct([FromUri] string sku, [FromBody] Product updatedProduct)
         {
             //do the id's match?
-            if (sku != updatedProduct.SKU)
-                return BadRequest("Product SKUs do not match");
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            if (sku == (updatedProduct?.SKU))
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-            //find the product in the database
-            Product product = await _context.Products.FindAsync(sku);
-            if (product is null)
-                return NotFound();
-            product.Name = updatedProduct.Name;
-            product.Cost = updatedProduct.Cost;
-            product.NumberInInventory = updatedProduct.NumberInInventory;
+                //find the product in the database
+                Product product = await _context.Products.FindAsync(sku);
+                if (product is null)
+                    return NotFound();
+                product.Name = updatedProduct.Name;
+                product.Cost = updatedProduct.Cost;
+                product.NumberInInventory = updatedProduct.NumberInInventory;
 
-            await _context.SaveChangesAsync();
-            return Ok("Update Successful!");
-            
+                await _context.SaveChangesAsync();
+                return Ok("Update Successful!");
+            }
+
+            return BadRequest("Product SKUs do not match");
+
         }
 
         //DELETE

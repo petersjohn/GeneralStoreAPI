@@ -17,10 +17,10 @@ namespace GeneralStoreAPI.Models
         {
             get
             {
-                return ($"{FirstName} + ' ' + {LastName}");
+                return ($"{FirstName} {LastName}");
             }
         }
-
+        public virtual List<Transaction> transactions { get; set; }
 
 
     }
